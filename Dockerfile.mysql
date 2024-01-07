@@ -1,0 +1,14 @@
+FROM mysql:8
+
+# Establece el directorio de trabajo
+WORKDIR /docker-entrypoint-initdb.d
+
+# Copia el script SQL al directorio de inicialización de MySQL
+COPY init.sql /docker-entrypoint-initdb.d/
+
+# Establece las variables de entorno para MySQL
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=db_enlaces_cortos
+
+# Establece el puerto de MySQL
+EXPOSE 3306

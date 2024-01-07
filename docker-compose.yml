@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    container_name: web 
+    restart: always
+    image: web_image:latest
+      
+  db:
+    build:  
+      context: .
+      dockerfile: Dockerfile.mysql
+    container_name: db 
+    restart: always
+    image: db_image:latest
+    ports:
+      - "3307:3306"
+
+ 

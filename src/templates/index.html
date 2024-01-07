@@ -6,7 +6,7 @@
   </div>
   <div class="card card-body p-5 mt-5" style="border-radius: 20px">
     {% with nueva_url = get_flashed_messages()%} {% if not nueva_url %}
-    <form action="{{ url_for('crear_enlace_corto') }}" method="POST">
+    <form action="{{ url_for('crear_enlace_corto') }}" method="post">
       <div class="input-group mb-3">
         <span
           class="input-group-text"
@@ -54,7 +54,7 @@
   function copiarURL() {
     const nuevaURL = document.getElementById('nuevaURL');
     nuevaURL.select();
-    nuevaURL.setSelectionRange(0, 50);
+    nuevaURL.setSelectionRange(0, 100);
     document.execCommand('copy');
 
     const btnCopiar = document.getElementById('btnCopiar');
